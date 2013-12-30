@@ -25,7 +25,7 @@
     NSInteger numPlayers = 3;
     for (NSInteger playerIdx = 0; playerIdx < numPlayers; playerIdx++) {
         PTPlayer *player = [PTPlayer new];
-        player.name = [NSString stringWithFormat:@"Player %d", playerIdx];
+        player.name = [NSString stringWithFormat:@"Player %@", @(playerIdx)];
         player.phase = 1;
         player.score = 500;
         [_players addObject:player];
@@ -43,9 +43,6 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(_addPlayerTapped:)];
     UIBarButtonItem *newGameButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(_newGameTapped:)];
     self.navigationItem.rightBarButtonItems = @[addButton, newGameButton];
-#warning remove
-    [self _addTestPlayers];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -85,9 +82,17 @@
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addPlayerCell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        [self _addPlayer];
+    }
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,6 +117,14 @@
     }
 }
 
+- (void)_addPlayer
+{
+    PTAddPlayerViewController *addPlayerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addPlayerViewController"];
+    addPlayerVC.players = _players;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPlayerVC];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
 #pragma mark - Actions
 
 - (void)_newGameTapped:(id)sender
@@ -122,10 +135,7 @@
 
 - (void)_addPlayerTapped:(id)sender
 {
-    PTAddPlayerViewController *addPlayerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addPlayerViewController"];
-    addPlayerVC.players = _players;
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPlayerVC];
-    [self presentViewController:navController animated:YES completion:nil];
+    [self _addPlayer];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -151,12 +161,33 @@
     [cell setNeedsLayout];
 }
 
+- (void)playerCellDidTapDecrementPhaseButton:(PTPlayerCell *)cell
+{
+    cell.player.phase--;
+    [cell setNeedsLayout];
+}
+
 - (void)playerCellDidTapAddScoreButton:(PTPlayerCell *)cell
 {
     PTAddScoreViewController *addScoreVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addScoreViewController"];
     addScoreVC.player = cell.player;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addScoreVC];
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)playerCellDidTapNameLabel:(PTPlayerCell *)cell
+{
+
+}
+
+- (void)playerCellDidTapPhaseLabel:(PTPlayerCell *)cell
+{
+
+}
+
+- (void)playerCellDidTapScoreLabel:(PTPlayerCell *)cell
+{
+
 }
 
 @end

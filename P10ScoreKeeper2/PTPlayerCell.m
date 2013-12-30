@@ -15,8 +15,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", _player.score];
-    self.phaseLabel.text = [NSString stringWithFormat:@"%d", _player.phase];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%@", @(_player.score)];
+    self.phaseLabel.text = [NSString stringWithFormat:@"%@", @(_player.phase)];
     self.nameLabel.text = _player.name;
 }
 

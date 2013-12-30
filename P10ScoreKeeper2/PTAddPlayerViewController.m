@@ -26,13 +26,30 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if ([self.nameTextField.text length]) {
-        PTPlayer *player = [PTPlayer new];
-        player.name = self.nameTextField.text;
-        [_players addObject:player];
+        [self _addPlayer];
         [self dismissViewControllerAnimated:YES completion:nil];
         return YES;
     }
     return NO;
+}
+
+- (void)_addPlayer
+{
+    PTPlayer *player = [PTPlayer new];
+    player.name = self.nameTextField.text;
+    player.phase = 1;
+    [_players addObject:player];
+}
+
+- (IBAction)cancelTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)addTapped:(id)sender
+{
+    [self _addPlayer];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
