@@ -1,5 +1,5 @@
 //
-//  PTViewController.h
+//  PTAddPlayerViewController.h
 //  P10ScoreKeeper2
 //
 //  Created by Kevin Ullmann on 12/29/13.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PTViewController : UITableViewController
+@interface PTAddPlayerViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic) NSMutableArray *players;
 
 @end

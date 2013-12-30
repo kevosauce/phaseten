@@ -22,6 +22,10 @@
 		CAF6E03B1870D775003AB9E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF6E01A1870D774003AB9E0 /* UIKit.framework */; };
 		CAF6E0431870D775003AB9E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAF6E0411870D775003AB9E0 /* InfoPlist.strings */; };
 		CAF6E0451870D775003AB9E0 /* P10ScoreKeeper2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E0441870D775003AB9E0 /* P10ScoreKeeper2Tests.m */; };
+		CAF6E0501870D98F003AB9E0 /* PTPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E04F1870D98F003AB9E0 /* PTPlayer.m */; };
+		CAF6E0531870DB6F003AB9E0 /* PTPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E0521870DB6F003AB9E0 /* PTPlayerCell.m */; };
+		CAF6E0561870E694003AB9E0 /* PTAddScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E0551870E694003AB9E0 /* PTAddScoreViewController.m */; };
+		CAF6E0591870F2A9003AB9E0 /* PTAddPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E0581870F2A9003AB9E0 /* PTAddPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		CAF6E0401870D775003AB9E0 /* P10ScoreKeeper2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "P10ScoreKeeper2Tests-Info.plist"; sourceTree = "<group>"; };
 		CAF6E0421870D775003AB9E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CAF6E0441870D775003AB9E0 /* P10ScoreKeeper2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = P10ScoreKeeper2Tests.m; sourceTree = "<group>"; };
+		CAF6E04E1870D98F003AB9E0 /* PTPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPlayer.h; sourceTree = "<group>"; };
+		CAF6E04F1870D98F003AB9E0 /* PTPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPlayer.m; sourceTree = "<group>"; };
+		CAF6E0511870DB6F003AB9E0 /* PTPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPlayerCell.h; sourceTree = "<group>"; };
+		CAF6E0521870DB6F003AB9E0 /* PTPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPlayerCell.m; sourceTree = "<group>"; };
+		CAF6E0541870E694003AB9E0 /* PTAddScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAddScoreViewController.h; sourceTree = "<group>"; };
+		CAF6E0551870E694003AB9E0 /* PTAddScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAddScoreViewController.m; sourceTree = "<group>"; };
+		CAF6E0571870F2A9003AB9E0 /* PTAddPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAddPlayerViewController.h; sourceTree = "<group>"; };
+		CAF6E0581870F2A9003AB9E0 /* PTAddPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAddPlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +129,17 @@
 				CAF6E0251870D774003AB9E0 /* PTAppDelegate.h */,
 				CAF6E0261870D774003AB9E0 /* PTAppDelegate.m */,
 				CAF6E0281870D774003AB9E0 /* Main_iPhone.storyboard */,
+				CAF6E0511870DB6F003AB9E0 /* PTPlayerCell.h */,
+				CAF6E0521870DB6F003AB9E0 /* PTPlayerCell.m */,
+				CAF6E0571870F2A9003AB9E0 /* PTAddPlayerViewController.h */,
+				CAF6E0581870F2A9003AB9E0 /* PTAddPlayerViewController.m */,
+				CAF6E0541870E694003AB9E0 /* PTAddScoreViewController.h */,
+				CAF6E0551870E694003AB9E0 /* PTAddScoreViewController.m */,
 				CAF6E02B1870D774003AB9E0 /* Main_iPad.storyboard */,
 				CAF6E02E1870D774003AB9E0 /* PTViewController.h */,
 				CAF6E02F1870D774003AB9E0 /* PTViewController.m */,
+				CAF6E04E1870D98F003AB9E0 /* PTPlayer.h */,
+				CAF6E04F1870D98F003AB9E0 /* PTPlayer.m */,
 				CAF6E0311870D774003AB9E0 /* Images.xcassets */,
 				CAF6E01D1870D774003AB9E0 /* Supporting Files */,
 			);
@@ -254,8 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF6E0531870DB6F003AB9E0 /* PTPlayerCell.m in Sources */,
+				CAF6E0561870E694003AB9E0 /* PTAddScoreViewController.m in Sources */,
 				CAF6E0271870D774003AB9E0 /* PTAppDelegate.m in Sources */,
+				CAF6E0591870F2A9003AB9E0 /* PTAddPlayerViewController.m in Sources */,
 				CAF6E0301870D774003AB9E0 /* PTViewController.m in Sources */,
+				CAF6E0501870D98F003AB9E0 /* PTPlayer.m in Sources */,
 				CAF6E0231870D774003AB9E0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
