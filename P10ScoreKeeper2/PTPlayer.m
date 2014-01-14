@@ -10,4 +10,14 @@
 
 @implementation PTPlayer
 
+- (instancetype)initWithName:(NSString *)name
+{
+    if (self = [super init]) {
+        self.name = name;
+        self.phase = 1;
+        self.score = 0;
+    }
+    return self;
+}
+
 @end

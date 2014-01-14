@@ -16,6 +16,8 @@
 @interface PTViewController () <PTPlayerCellDelegate, UIActionSheetDelegate>
 
 @property (nonatomic) NSMutableArray *players;
+@property (nonatomic) UIBarButtonItem *resetButton;
+
 @end
 
 @implementation PTViewController
@@ -41,13 +43,19 @@
     _players = [NSMutableArray new];
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(_addPlayerTapped:)];
-    UIBarButtonItem *newGameButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(_newGameTapped:)];
-    self.navigationItem.rightBarButtonItems = @[addButton, newGameButton];
+    _resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(_newGameTapped:)];
+    _resetButton.enabled = NO;
+    self.navigationItem.rightBarButtonItems = @[addButton, _resetButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.tableView reloadData];
+}
+
+- (void)_updateNavBarItems
+{
+    _resetButton.enabled = (_players.count > 0);
 }
 
 #pragma mark - UITableView
@@ -83,7 +91,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_players count] > 0;
+    return ([_players count] > 0);
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,14 +100,15 @@
         [_players removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+    [self _updateNavBarItems];
 }
 
-- (void)_addPlayer
+#pragma mark - PTAddPlayerDelegate
+
+- (void)addPlayerNamed:(NSString *)name
 {
-    PTAddPlayerViewController *addPlayerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addPlayerViewController"];
-    addPlayerVC.players = _players;
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPlayerVC];
-    [self presentViewController:navController animated:YES completion:nil];
+    [_players addObject:[[PTPlayer alloc] initWithName:name]];
+    [self _updateNavBarItems];
 }
 
 #pragma mark - Actions
@@ -112,7 +121,10 @@
 
 - (void)_addPlayerTapped:(id)sender
 {
-    [self _addPlayer];
+    PTAddPlayerViewController *addPlayerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addPlayerViewController"];
+    addPlayerVC.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPlayerVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -127,6 +139,7 @@
     } else if (buttonIndex == 0) {
         _players = [NSMutableArray new];
     }
+    [self _updateNavBarItems];
     [self.tableView reloadData];
 }
 

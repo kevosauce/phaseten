@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTAddPlayerViewController.h"
 
-@interface PTViewController : UITableViewController
+@interface PTViewController : UITableViewController <PTAddPlayerDelegate>
 
 @end

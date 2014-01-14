@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PTAddPlayerDelegate <NSObject>
+
+- (void)addPlayerNamed:(NSString *)name;
+
+@end
+
 @interface PTAddPlayerViewController : UIViewController <UITextFieldDelegate>
 
-@property (nonatomic) NSMutableArray *players;
+@property (nonatomic, weak) id<PTAddPlayerDelegate> delegate;
 
 @end

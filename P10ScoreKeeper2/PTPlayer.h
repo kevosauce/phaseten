@@ -14,4 +14,6 @@
 @property (nonatomic) NSUInteger phase;
 @property (nonatomic) NSUInteger score;
 
+- (instancetype)initWithName:(NSString *)name;
+
 @end

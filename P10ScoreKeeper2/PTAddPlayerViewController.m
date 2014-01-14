@@ -8,8 +8,6 @@
 
 #import "PTAddPlayerViewController.h"
 
-#import "PTPlayer.h"
-
 @interface PTAddPlayerViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
@@ -35,10 +33,7 @@
 
 - (void)_addPlayer
 {
-    PTPlayer *player = [PTPlayer new];
-    player.name = self.nameTextField.text;
-    player.phase = 1;
-    [_players addObject:player];
+    [self.delegate addPlayerNamed:self.nameTextField.text];
 }
 
 - (IBAction)cancelTapped:(id)sender
