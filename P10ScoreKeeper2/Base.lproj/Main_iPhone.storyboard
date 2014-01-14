@@ -46,6 +46,9 @@
                                             <state key="normal" title="-">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="decrementPhaseTapped:" destination="uqW-9J-4Xg" eventType="touchUpInside" id="XBD-PZ-8Kl"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRf-fp-s0h">
                                             <rect key="frame" x="105" y="54" width="46" height="30"/>
@@ -70,7 +73,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="decrementPhaseButton" destination="jg7-uX-GgY" id="j9A-hZ-cx0"/>
                                     <outlet property="delegate" destination="1yi-BA-Vli" id="dGb-HI-nPu"/>
+                                    <outlet property="incrementPhaseButton" destination="oRf-fp-s0h" id="5iW-4U-AT2"/>
                                     <outlet property="nameLabel" destination="BlO-n7-Mtk" id="oUg-P5-eTM"/>
                                     <outlet property="phaseLabel" destination="1hh-Qz-tyr" id="hYR-0n-77T"/>
                                     <outlet property="scoreLabel" destination="qdd-cS-AQi" id="QuK-fb-VUm"/>

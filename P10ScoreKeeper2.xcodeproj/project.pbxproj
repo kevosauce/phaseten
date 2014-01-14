@@ -134,13 +134,13 @@
 				CAF6E0581870F2A9003AB9E0 /* PTAddPlayerViewController.m */,
 				CAF6E0541870E694003AB9E0 /* PTAddScoreViewController.h */,
 				CAF6E0551870E694003AB9E0 /* PTAddScoreViewController.m */,
-				CAF6E0281870D774003AB9E0 /* Main_iPhone.storyboard */,
-				CAF6E02B1870D774003AB9E0 /* Main_iPad.storyboard */,
 				CAF6E02E1870D774003AB9E0 /* PTViewController.h */,
 				CAF6E02F1870D774003AB9E0 /* PTViewController.m */,
 				CAF6E04E1870D98F003AB9E0 /* PTPlayer.h */,
 				CAF6E04F1870D98F003AB9E0 /* PTPlayer.m */,
 				CAF6E0311870D774003AB9E0 /* Images.xcassets */,
+				CAF6E0281870D774003AB9E0 /* Main_iPhone.storyboard */,
+				CAF6E02B1870D774003AB9E0 /* Main_iPad.storyboard */,
 				CAF6E01D1870D774003AB9E0 /* Supporting Files */,
 			);
 			path = P10ScoreKeeper2;
@@ -499,6 +499,7 @@
 				CAF6E04A1870D775003AB9E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAF6E04B1870D775003AB9E0 /* Build configuration list for PBXNativeTarget "P10ScoreKeeper2Tests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +508,7 @@
 				CAF6E04D1870D775003AB9E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

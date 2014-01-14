@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phaseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UIButton *decrementPhaseButton;
+@property (weak, nonatomic) IBOutlet UIButton *incrementPhaseButton;
 
 @property (nonatomic) PTPlayer *player;
 @property (nonatomic, weak) IBOutlet id<PTPlayerCellDelegate> delegate;
